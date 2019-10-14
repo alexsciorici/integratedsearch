@@ -1,0 +1,64 @@
+def Soft():
+    print ("Generating a new X-ray string\nPress 'Enter' after each answer\nString will be saved in the cache, you need to paste into the browser\nLet the game begin")
+    def LinkedIn():
+        import pyperclip
+        import sys
+        JT = input("what is the job title? ")
+        print ("let's add 2 key words")
+        KW1 = input ("what is first key word? ") 
+        KW2 = input ("what is the second key word? ")
+        LO = input ("what is the location? ")          
+        rest = ' -intitle:"profiles" -inurl:"dir/ " site:linkedin.com/in/ OR site:linkedin.com/pub ' 
+        T = input ("all good? Y or N ")
+        if T == "Y" or T == "y":
+            print (("~ " '("%s")'+ " AND " '("%s" ' "OR " '"%s")' " AND" + rest + "AND " "%s") %(JT, KW1, KW2, LO))
+            pyperclip.copy (("~ " '("%s")'+ " AND " '("%s" ' "OR " '"%s")' " AND" + rest + "AND " "%s") %(JT, KW1, KW2, LO))
+        elif T == "N" or T =="n":
+            LinkedIn()
+        restart = input ("would you like to restart LinkedIn Search? Y/N ")
+        if restart == "Y" or restart == "y":
+            LinkedIn()
+        elif restart == "N" or restart == "n":
+            print ("return to main interface")
+            Soft()
+        else:
+            print ("invalid answer, return to main window")
+            Soft()
+                   
+
+    def Xing():
+        import pyperclip
+        import sys 
+        JT = input ("What is the job title? ")
+        LO = input ("What is the location? ")
+        print ("and now 2 key-words: ")
+        KW = input ("first key-word: ")
+        KW2 = input ("and the second: ")
+        L= 'site:xing.com/profile/ intitle:'
+        U = input ("all good? Y or N ")
+        if U == "Y" or U == "y":
+            print ((L + '"%s"' " AND " '("%s" OR "%s")' " AND " "%s") %(JT, KW, KW2, LO))
+            pyperclip.copy ((L + '"%s"' " AND " '("%s" OR "%s")' " AND " "%s") %(JT, KW, KW2, LO))
+        elif U == "N" or U == "n":
+            Xing()
+        restart = input ("would you like to restart Xing search? Y/N ")
+        if restart == "Y" or restart == "y":
+                Xing()   
+        elif restart == "N" or restart == "n":
+            print ("return to main interface")
+            Soft()
+        else:
+            print ("invalid answer, return to main window")
+            Soft()
+            
+            
+    answer = input ("X for Xing or L for LinkedIn ")
+    if answer == "X" or answer == "x":
+        Xing()
+    elif answer == "L" or answer == "l":
+        LinkedIn()
+    else:
+        print ("Invalid answer, please try again")
+        Soft()
+Soft()
+input()
